@@ -10,9 +10,9 @@ pub async fn handle_file_upload(payload: &mut web::Payload) -> Result<(), Error>
     while let Some(chunk) = payload.next().await {
         let data = chunk?;
         // Process chunks here; for example, write them to a file
-        let mut uuid_v4 = Uuid::new_v4();
+        let uuid_v4 = Uuid::new_v4();
         let uuid_string = uuid_v4.to_string();
-        let mut file = web::block(|| std::fs::File::create(uuid_string)).await??;
+        let mut file = web::block(std::fs::File::create(|| uuid_string)).await??;
         file.write_all(&data)?;
     }
 
