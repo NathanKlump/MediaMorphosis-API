@@ -22,16 +22,22 @@ pub async fn upload_file(payload: Multipart) -> HttpResponse {
                     let mut contents = Vec::new();
                     file.read_to_end(&mut contents).expect("Failed to read converted file");
 
-                    HttpResponse::Ok()
-                        .header("Content-Disposition", format!("attachment; filename=\"{}\"", output_name))
-                        .content_type("application/octet-stream")
-                        .body(contents)
-                },
+                    let response = HttpResponse::Ok()
+                    .header("Content-Disposition", format!("attachment; filename=\"{}\"", output_name))
+                    .content_type("application/octet-stream")
+                    .body(contents);
+
+                    // Attempt to delete the output file
+                    if let Err(e) = std::fs::remove_file(&output_name) {
+                      eprintln!("Warning: Failed to delete output file: {}", e);
+                    }
+
+                    response
+                    },
                 Err(e) => HttpResponse::InternalServerError().body(format!("File uploaded but conversion failed: {}", e)),
             }
         },
         Err(e) => HttpResponse::InternalServerError().body(format!("File upload failed: {}", e)),
     }
-    //fs::remove_file(output_name)?;
 
 }

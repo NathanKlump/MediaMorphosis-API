@@ -39,9 +39,6 @@ pub async fn handle_file_upload(mut payload: Multipart) -> Result<(String, Strin
     let mut file = web::block(move || std::fs::File::create(&file_path)).await??;
     file.write_all(&buffer)?;
 
-    // Optionally use output_file_value here
-    // e.g., print it or save it along with file information
-
     Ok((file_path_clone, output_file_value))
 }
 
