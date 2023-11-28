@@ -8,16 +8,15 @@ use crate::utils;
 use crate::converter;
 
 pub async fn upload_file(payload: Multipart) -> HttpResponse {
+    let result = utils::handle_file_upload(payload).await;
 
-    let file_name = utils::handle_file_upload(payload).await;
-
-    match file_name {
-        Ok(file_path) => {
-            match converter::convert_file(file_path, "hello.mp4") {
+    match result {
+        Ok((file_name, output_name)) => {
+            match converter::convert_file(file_name, output_name) {
                 Ok(()) => HttpResponse::Ok().body("File uploaded and conversion successful"),
                 Err(e) => HttpResponse::InternalServerError().body(format!("File uploaded but conversion failed: {}", e)),
             }
-        }, 
+        },
         Err(e) => HttpResponse::InternalServerError().body(format!("File upload failed: {}", e)),
     }
 }

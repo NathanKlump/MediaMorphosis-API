@@ -7,7 +7,7 @@ use futures_util::StreamExt as _;
 use uuid::Uuid;
 use std::io::Write;
 
-pub async fn handle_file_upload(mut payload: Multipart) -> Result<String, Error> {
+pub async fn handle_file_upload(mut payload: Multipart) -> Result<(String, String), Error> {
     let uuid_v4 = Uuid::new_v4();
     let mut file_path = uuid_v4.to_string();
     let mut buffer = Vec::new();
@@ -29,7 +29,6 @@ pub async fn handle_file_upload(mut payload: Multipart) -> Result<String, Error>
             }
         }
     }
-    println!("the new var is: {}", output_file_value);
 
     if let Some(kind) = infer::get(&buffer) {
         file_path.push_str(".");
@@ -43,7 +42,7 @@ pub async fn handle_file_upload(mut payload: Multipart) -> Result<String, Error>
     // Optionally use output_file_value here
     // e.g., print it or save it along with file information
 
-    Ok(file_path_clone)
+    Ok((file_path_clone, output_file_value))
 }
 
 

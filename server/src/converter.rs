@@ -4,7 +4,7 @@
 use std::process::Command;
 use std::fs;
 
-pub fn convert_file(input_file: String, output_file: &str) -> std::io::Result<()> {
+pub fn convert_file(input_file: String, output_file: String) -> std::io::Result<()> {
     Command::new("ffmpeg")
         .arg("-i")
         .arg(&input_file)
