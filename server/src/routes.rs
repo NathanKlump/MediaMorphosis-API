@@ -2,13 +2,14 @@
 //Each route will be associated with a function that executes when the route is accessed. 
 //This includes your media file upload and conversion endpoint.
 
-use actix_web::{web, HttpResponse};
+use actix_multipart::Multipart;
+use actix_web::HttpResponse;
 use crate::utils;
 use crate::converter;
 
-pub async fn upload_file(mut payload: web::Payload) -> HttpResponse {
+pub async fn upload_file(payload: Multipart) -> HttpResponse {
 
-    let file_name = utils::handle_file_upload(&mut payload).await;
+    let file_name = utils::handle_file_upload(payload).await;
 
     match file_name {
         Ok(file_path) => {
