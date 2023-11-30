@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { convertMedia } from './api/API';
 
 function App() {
+  const [mediaFile, setMediaFile] = useState(null);
+  const [format, setFormat] = useState('');
+
+  const handleFileChange = (event) => {
+    setMediaFile(event.target.files[0]);
+  };
+
+  const handleFormatChange = (event) => {
+    setFormat(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const data = await convertMedia(mediaFile, format);
+      console.log(data);
+      // Handle the response further (e.g., show a success message)
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle the error (e.g., show an error message)
+    }
+  };
+
   return (
     <div className="bg-gray-100 text-gray-900 font-sans min-h-screen flex flex-col justify-center items-center">
       <div className="max-w-md mx-auto p-8 bg-white shadow-lg rounded-lg">
@@ -13,7 +38,7 @@ function App() {
         </p>
 
         {/* Form Section */}
-        <form className="mt-6">
+        <form className="mt-6" onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="mediaFile">
               Media File
@@ -23,18 +48,20 @@ function App() {
               id="mediaFile"
               className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               accept="audio/*,video/*,image/*"
+              onChange={handleFileChange}
             />
           </div>
 
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="format">
-              Desired Format
+              Desired Output File
             </label>
             <input
               type="text"
               id="format"
               className="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="e.g., mp4, mp3, png"
+              placeholder="e.g., output.mp4, example.mp3"
+              onChange={handleFormatChange}
             />
           </div>
 
