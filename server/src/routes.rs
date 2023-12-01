@@ -39,5 +39,4 @@ pub async fn upload_file(payload: Multipart) -> HttpResponse {
         },
         Err(e) => HttpResponse::InternalServerError().body(format!("File upload failed: {}", e)),
     }
-
 }
