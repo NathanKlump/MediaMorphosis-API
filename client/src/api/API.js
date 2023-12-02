@@ -20,7 +20,7 @@ export const convertMedia = async (mediaFile, format) => {
 
     // You might want to derive the file name from the response header if available
     fileLink.href = fileURL;
-    fileLink.setAttribute('download', 'output.' + format); // Set a default filename and format
+    fileLink.setAttribute('download', format); // Set a default filename and format
     document.body.appendChild(fileLink);
 
     fileLink.click();
