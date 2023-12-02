@@ -7,7 +7,7 @@ export const convertMedia = async (mediaFile, format) => {
   formData.append('output_file', format);
 
   try {
-    const response = await axios.post('http://35.208.111.114:8080/upload', formData, {
+    const response = await axios.post('https://35.208.111.114:8080/upload', formData, {
       responseType: 'blob', // important for files
       headers: {
         'Content-Type': 'multipart/form-data',
