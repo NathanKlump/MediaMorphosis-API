@@ -27,7 +27,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(cors)
             .route("/upload", web::post().to(routes::upload_file))
     })
-    .bind("0.0.0.0:8080")?
+    .bind_openssl("0.0.0.0:8080", builder)?
     .run()
     .await
 }
