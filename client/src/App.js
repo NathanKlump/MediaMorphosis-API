@@ -48,11 +48,24 @@ function App() {
   };
 
   return (
+    // Colors:
+    // Lime Green -> #BEF264 --> Tailwind CSS Color lime-500
+    // Dark blue -> #263238 --> Tailwind CSS Color slate-500
+    // gray-800
+
     <body>
       <div className="relative bg-gray-800">
         <div>
           <div className="absolute inset-x-0 top-2 z-10 left-2 right-2">
             <div className="flex justify-between items-center px-10 py-8 bg-lime-500 text-white shadow-lg rounded-xl border border-gray-800">
+              <a href="/" class="logo">
+                <img
+                  className="max-w-12 max-h-12"
+                  src="logo.png"
+                  alt="MediaMorpher Logo"
+                  class="logo-img"
+                />
+              </a>
               <h2 className="font-bold text-xl">MediaMorphosis</h2>
               <ul className="flex items-center space-x-4">
                 <li>
@@ -128,7 +141,7 @@ function App() {
             </div>
           </div>
           <div>
-            <h1 className="bg-gradient-to-b from-lime-500 opacity-100 to-gray-900 bg-clip-text text-5xl py-2 text-transparent font-bold lg:text-7xl text-center">
+            <h1 className="bg-gradient-to-b from-lime-400 opacity-100 to-white bg-clip-text text-5xl py-2 text-transparent font-bold lg:text-7xl text-center">
               Why Choose MediaMorphosis?
             </h1>
           </div>
@@ -141,11 +154,12 @@ function App() {
                     className="rounded-md bg-gray-900 hover:bg-neutral-600/80 flex flex-col justify-start p-2 m-2 ring-2 ring-neutral-600/60"
                     onClick={handleBarOneClick}
                   >
-                    Why pick MediaMorphosis?
+                    Supports Multiple Formats
                   </div>
                   {isBarOneOpen && (
                     <div className="bg-gray-800 text-white p-4 rounded-md">
-                      Because...
+                      Convert your videos to a wide range of popular formats,
+                      including MP4, AVI, MKV, WMV, MOV, and FLV.
                     </div>
                   )}
                 </div>
@@ -154,11 +168,12 @@ function App() {
                     className="rounded-md bg-gray-900 hover:bg-neutral-600/80 flex flex-col justify-start p-2 m-2 ring-2 ring-neutral-600/60"
                     onClick={handleBarTwoClick}
                   >
-                    Question 2
+                    Fast and User-Friendly
                   </div>
                   {isBarTwoOpen && (
                     <div className="bg-gray-800 text-white p-4 rounded-md">
-                      Answer to Question 2
+                      Our video converter is fast and easy to use. Simply upload
+                      your video and select the desired format.
                     </div>
                   )}
                 </div>
@@ -167,11 +182,12 @@ function App() {
                     className="rounded-md bg-gray-900 hover:bg-neutral-600/80 flex flex-col justify-start p-2 m-2 ring-2 ring-neutral-600/60"
                     onClick={handleBarThreeClick}
                   >
-                    Question 3
+                    Security and Privacy
                   </div>
                   {isBarThreeOpen && (
                     <div className="bg-gray-800 text-white p-4 rounded-md">
-                      Answer to Question 3
+                      Rest assured, your videos are kept secure and private. We
+                      never share your videos with anyone else.
                     </div>
                   )}
                 </div>
