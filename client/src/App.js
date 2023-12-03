@@ -61,7 +61,7 @@ function App() {
           <div className="flex justify-between items-center px-10 py-8 bg-lime-500 text-white shadow-lg rounded-xl border border-gray-800">
             <a href="/" className="logo">
               <img
-                className="max-w-14 max-h-14 logo-img"
+                className="max-w-16 max-h-16 logo-img"
                 src="logo.png"
                 alt="MediaMorpher Logo"
               />
@@ -69,12 +69,12 @@ function App() {
             {/* <h2 className="font-bold text-xl">MediaMorphosis1</h2> */}
             <ul className="flex items-center space-x-4">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white">
+                <a href="#" className="text-gray-700 hover:text-white text-xl font-bold">
                   Documentation
                 </a>
               </li>
               <li>
-                <button className="bg-rose-500 hover:bg-rose-700 px-3 py-2 rounded text-white font-bold">
+                <button className="bg-gray-700 hover:bg-rose-700 px-3 py-2 rounded text-white font-bold">
                   Get Started
                 </button>
               </li>
@@ -84,10 +84,10 @@ function App() {
       </header>
 
       {/* Main section containing the hear/main content (like the FAQ and converter) */}
-      <main>
+      <main className="relative">
         {/* The welcome */}
-        <section className="text-white text-gray-900 font-sans min-h-100 flex flex-col justify-center items-center">
-          <h1 className="absolute text-2xl text-lime-400 font-bold mb-4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <section className="text-white text-gray-900 font-sans min-h-screen flex justify-center items-center">
+          <h1 className="relative text-2xl text-lime-400 font-bold">
             Welcome to MediaMorphosis API!
           </h1>
         </section>
@@ -96,17 +96,17 @@ function App() {
         <section className="">
           <div className="text-white text-gray-900 font-sans min-h-screen flex flex-col justify-center items-center">
             <div className="max-w-md mx-auto p-8 shadow-lg rounded-lg bg-slate-500">
-              <h1 className="text-2xl text-lime-400 font-bold mb-4">
+              <h1 className="text-3xl text-lime-400 font-bold mb-4 ">
                 MediaMorphosis API
               </h1>
-              <p className="mb-4">
+              <p className="mb-4 text-2xl">
                 Written in Rust and leveraging FFmpeg, the{" "}
                 <strong>MediaMorphosis API</strong> offers high-performance
                 media conversion capabilities. It effortlessly transforms audio,
                 video, and images into various formats, ensuring both quality
                 and speed.
               </p>
-              <p className="mb-6">
+              <p className="mb-10 text-2xl">
                 Ideal for developers needing a reliable and swift media
                 converter, MediaMorphosis API simplifies the process of media
                 file conversion without compromising on efficiency or
@@ -116,7 +116,7 @@ function App() {
               <form className="mt-6" onSubmit={handleSubmit}>
                 <div className="mb-4">
                   <label
-                    className="block text-gray-700 text-sm font-bold mb-2"
+                    className="block text-gray-800 text-sm font-bold mb-2"
                     htmlFor="mediaFile"
                   >
                     Media File
@@ -124,14 +124,14 @@ function App() {
                   <input
                     type="file"
                     id="mediaFile"
-                    className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
                     accept="audio/*,video/*,image/*"
                     onChange={handleFileChange}
                   />
                 </div>
                 <div className="mb-6">
                   <label
-                    className="block text-gray-700 text-sm font-bold mb-2"
+                    className="block text-gray-900 text-sm font-bold mb-2"
                     htmlFor="format"
                   >
                     Desired Output File
@@ -139,14 +139,14 @@ function App() {
                   <input
                     type="text"
                     id="format"
-                    className="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow border rounded w-full py-2 px-3 text-gray-900 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                     placeholder="e.g., output.mp4, example.mp3"
                     onChange={handleFormatChange}
                   />
                 </div>
                 <button
                   type="submit"
-                  className="bg-gray-800 hover:bg-rose-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="bg-gray-800 hover:bg-rose-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 >
                   Convert
                 </button>
