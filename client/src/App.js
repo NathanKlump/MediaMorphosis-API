@@ -58,12 +58,11 @@ function App() {
         <div>
           <div className="absolute inset-x-0 top-2 z-10 left-2 right-2">
             <div className="flex justify-between items-center px-10 py-8 bg-lime-500 text-white shadow-lg rounded-xl border border-gray-800">
-              <a href="/" class="logo">
+              <a href="/" className="logo">
                 <img
-                  className="max-w-12 max-h-12"
+                  className="max-w-12 max-h-12 logo-img"
                   src="logo.png"
                   alt="MediaMorpher Logo"
-                  class="logo-img"
                 />
               </a>
               <h2 className="font-bold text-xl">MediaMorphosis</h2>
