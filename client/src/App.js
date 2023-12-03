@@ -65,7 +65,7 @@ function App() {
                   alt="MediaMorpher Logo"
                 />
               </a>
-              <h2 className="font-bold text-xl">MediaMorphosis</h2>
+              <h2 className="font-bold text-xl">MediaMorphosis1</h2>
               <ul className="flex items-center space-x-4">
                 <li>
                   <a href="#" className="text-gray-300 hover:text-white">
