@@ -47,39 +47,53 @@ function App() {
     }
   };
 
-  return (
-    // Colors:
-    // Lime Green -> #BEF264 --> Tailwind CSS Color lime-500
-    // Dark blue -> #263238 --> Tailwind CSS Color slate-500
-    // gray-800
+  // Colors:
+  // Lime Green -> #BEF264 --> Tailwind CSS Color lime-500
+  // Dark blue -> #263238 --> Tailwind CSS Color slate-500
+  // gray-800
 
-    <body>
-      <div className="relative bg-gray-800">
-        <div>
-          <div className="absolute inset-x-0 top-2 z-10 left-2 right-2">
-            <div className="flex justify-between items-center px-10 py-8 bg-lime-500 text-white shadow-lg rounded-xl border border-gray-800">
-              <a href="/" className="logo">
-                <img
-                  className="max-w-12 max-h-12 logo-img"
-                  src="logo.png"
-                  alt="MediaMorpher Logo"
-                />
-              </a>
-              <h2 className="font-bold text-xl">MediaMorphosis1</h2>
-              <ul className="flex items-center space-x-4">
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-white">
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <button className="bg-rose-500 hover:bg-rose-700 px-3 py-2 rounded text-white font-bold">
-                    Get Started
-                  </button>
-                </li>
-              </ul>
-            </div>
+  return (
+    // Entire body
+    <body className="relative bg-gray-800">
+      {/* Header first */}
+      <header>
+        <div className="absolute inset-x-0 top-2 z-10 left-2 right-2">
+          <div className="flex justify-between items-center px-10 py-8 bg-lime-500 text-white shadow-lg rounded-xl border border-gray-800">
+            <a href="/" className="logo">
+              <img
+                className="max-w-14 max-h-14 logo-img"
+                src="logo.png"
+                alt="MediaMorpher Logo"
+              />
+            </a>
+            {/* <h2 className="font-bold text-xl">MediaMorphosis1</h2> */}
+            <ul className="flex items-center space-x-4">
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white">
+                  Documentation
+                </a>
+              </li>
+              <li>
+                <button className="bg-rose-500 hover:bg-rose-700 px-3 py-2 rounded text-white font-bold">
+                  Get Started
+                </button>
+              </li>
+            </ul>
           </div>
+        </div>
+      </header>
+
+      {/* Main section containing the hear/main content (like the FAQ and converter) */}
+      <main>
+        {/* The welcome */}
+        <section className="text-white text-gray-900 font-sans min-h-100 flex flex-col justify-center items-center">
+          <h1 className="absolute text-2xl text-lime-400 font-bold mb-4 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            Welcome to MediaMorphosis API!
+          </h1>
+        </section>
+
+        {/* The main content, the converter */}
+        <section className="">
           <div className="text-white text-gray-900 font-sans min-h-screen flex flex-col justify-center items-center">
             <div className="max-w-md mx-auto p-8 shadow-lg rounded-lg bg-slate-500">
               <h1 className="text-2xl text-lime-400 font-bold mb-4">
@@ -139,6 +153,10 @@ function App() {
               </form>
             </div>
           </div>
+        </section>
+
+        {/* The FAQ */}
+        <section>
           <div>
             <h1 className="bg-gradient-to-b from-lime-400 opacity-100 to-white bg-clip-text text-5xl py-2 text-transparent font-bold lg:text-7xl text-center">
               Why Choose MediaMorphosis?
@@ -193,18 +211,18 @@ function App() {
               </div>
             </div>
           </div>
+        </section>
+      </main>
+
+      {/* Just the footer */}
+      <footer className="justify-end bottom-2 z-0 left-2 right-2 ">
+        <div className="flex justify-between items-center px-10 py-8 bg-lime-500 text-white shadow-lg rounded-xl border">
+          <p>
+            &copy; 2023 Video Converter by: John Atalla, Dominick Kalaj,
+            Nathaniel Klump
+          </p>
         </div>
-        <div className="justify-end bottom-2 z-0 left-2 right-2 ">
-          <footer className="">
-            <div className="flex justify-between items-center px-10 py-8 bg-lime-500 text-white shadow-lg rounded-xl border">
-              <p>
-                &copy; 2023 Video Converter by: John Atalla, Dominick Kalaj,
-                Nathaniel Klump
-              </p>
-            </div>
-          </footer>
-        </div>
-      </div>
+      </footer>
     </body>
   );
 }
