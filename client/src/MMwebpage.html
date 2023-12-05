@@ -69,63 +69,136 @@
 <body>
     <div class="container">
         <h1>MediaMorphosis-API</h1>
-        <p>
-            <!-- Brief paragraph about your service -->
-        <h2>About</h2>
 
-        MediaMorphosis API, written in Rust, leverages FFmpeg for high-performance media conversion. It effortlessly
-        transforms audio, video, and images into various formats, ensuring quality and speed. Ideal for developers
-        needing a reliable, swift media converter.
+        <h2>About</h2>
+        <p>MediaMorphosis API, written in Rust, leverages FFmpeg for high-performance media conversion. It effortlessly
+            transforms audio, video, and images into various formats, ensuring quality and speed. Ideal for developers
+            needing a reliable, swift media converter.</p>
+
+        <h2>Overview</h2>
+        <p>FFMPEG is a linux command line utility that can converts media formats into others. Our server is
+            created in order to
+            receive an input stream of a media file and a desired file type, feed it into the server and convert the
+            file. Then, it is outputted
+            as a file that contains a stream of data back to the client. We created this server using the programming
+            language Rust and the front end was done with react. Here is the webpage link:
+            <a href="source_link">
+                https://media-morphosis-api.vercel.app/</a>
         </p>
 
+        <h2>Implementation</h2>
+        <p>Our website can be used for media conversion for many use cases. An example of one is converting a video
+            format for mobile device compatibility for video formats that might not be supprted. Another example is
+            content creation for multimedia hobbyists.</p>
+
         <h2>Setup Details</h2>
+        <p>To get MediaMorphosis-API up and running on a VM, Rust programming language and FFmpeg have to be installed.
+            Then, clone the project repository and adjust some parts of the configuration files. Specifically, the
+            input/output directories and server ports. Next, configure the React server to connect with the API server.
+            To execute, the user can use the 'start_MM_service.sh script'. The user can also configure the automated log
+            backups as they want.</p>
+
+        <h3>Project Name</h3>
+        <p>MediaMorphosis API</p>
+
+        <h3>Group Ownerships</h3>
+        <p>Two user groups were created within the GCP VM: 'Admin' and 'Peasants'. The 'Admin' group
+            has access to logs and system activities, while 'Peasants' are restricted from accessing logs to maintain
+            data integrity.</p>
+
+        <h3>Restricted Resources</h3>
+        <p>The restricted resource was associated with the video size, and the success rate of the logging has been a
+            bit of an
+            issue due
+            to the middleware. The middleware reads the header bits, which might have a chance of failing, although that
+            hasn't
+            happened yet.</p>
+
+        <h3>WRITE WHERE TO FIND IT: Script Details</h3>
         <p>
-            <!-- Describe the implementation of your service -->
-            Project Name: MediaMorphosis API
+        <ul>
+            <li>
+                &#x2022 log_network_traffic.sh: Automation of network trafficinf and bandwith usage of the API.
+            </li>
+            <li>&#x2022 log_ststem_resources.sh: Automation of system resource tracking (ex: CPU and Memory)</li>
+            <li>&#x2022 log_ststem_resources.sh:
+                This script automates the start of the Rust application and also contains a redirection for the output
+                of to a log file.</li>
+        </ul>
+        </p>
 
-            The restricted users involved two user groups within the GCP VM: 'Admin' and 'Peasants'. The 'Admin' group
-            has access to logs and system activities, while 'Peasants' are restricted from accessing logs to maintain data integrity.
+        <h3>WRITE WHERE TO FIND IT: Logging Specifics</h3>
+        <p>Two logging scripts are used:
+        <ul>
+            <li>
+                &#x2022 log_network_traffic.sh:
+                A script that is employed to log the network traffic hitting the API, facilitating both troubleshooting
+                network performance
+                issues and also tracking the utilization of the network bandwidth over time.
+            </li>
+            <li>&#x2022 log_ststem_resources.sh:
+                This script is very helpful with trying to figure out why the system isn't performing well. Plus, it's
+                always
+                tracking how our
+                system resources are used over time, giving us some really useful insights into their patterns and how
+                they fluctuate in
+                performance.</li>
+        </ul>
+        </p>
 
-            The restrictied resource involved video size... logging success rate is kinda a issue because the middleware reads the header bits and that has a chance of failing (even though it has not yet).
-
-            
-
-            Implementation details including group names, restricted resources, script details, logging specifics, and
-            backup script information.
+        <h3>Backup Script</h3>
+        <p>The backup script we created allows for backup file to be created every 24 hours at 2 am. The file is then
+            archived and zipped. It is located in the following pwd: /home/server/local/CSI3660ProjectBackup. Note:
+            'CSI3660ProjectBackup' is a directory.
         </p>
 
         <h2>Group Members and Contributions</h2>
         <ul>
-            <!-- List of group members and their specific contributions -->
-            <li>Nathan Klump: Helped build rust server, and hosting the service to the public. Tested sending requests
-                and retrieving data. Added
-                control access for sensitive files on the server.</li>
-            <li>John Ataalla: Rust server dev, created react axios call, added logging processes, created backup system.
+            <li>Nathaniel Klump: Rust server dev, created react axios call, added logging processes, created backup
+                system.
+            </li>
+            <li>John Ataalla: Helped build rust server, and hosting the service to the public. Tested sending requests
+                and
+                retrieving data.
+                Added control access for sensitive files on the server.
             </li>
             <li>Dominick Kalaj: Frontend development, changed from SvelteKit to React, access form and file submission.
             </li>
-            <!-- Add more members as needed -->
         </ul>
 
         <h2>Service Screenshot</h2>
         <p>
-            <!-- Include at least one screenshot of your service -->
             <img src=https://i.ibb.co/xJyhkM8/form.png" alt="Service Screenshot">
+        <p>User will click on 'Choose File'. The file explorer will open and the user is to look for a media file.</p>
+        <img src=https://i.ibb.co/s18xCym/mmimage2.png" alt="Service Screenshot">
+        <p>The user select a media file and press open.</p>
+        <img src=https://i.ibb.co/J2b4w1t/mmimage3.png" alt="Service Screenshot">
+        <p>The user will put the new name with the file format they desire. The new file will show up in the downloads
+            folder.</p>
+
         </p>
+
+        <h2>Results and Conclusion</h2>
+        <p>Our MediaMorphosis-API effecitively demonstrates media conversion with the successful integration of Rust,
+            React and FFmpeg technologies while using the GCP VM Linux system for scripting and backup mechanics. Future
+            works would contain enhancing UI.</p>
 
         <h2>References</h2>
         <ul>
             <!-- Provide references for any online sources used -->
             <li>
-            <li><a href="source_link">
+            <li>[1]<a href="source_link">
                     https://www.youtube.com/watch?v=T_KrYLW4jw8&ab_channel=TechWithTi</a></li>
-            <li><a href="source_link">https://youtu.be/hQAHSlTtcmY?si=MvU95wLXKO9hEqm5 - React Tutorial </a></li>
-            <li><a href="source_link">https://www.youtube.com/watch?v=299EVj73Z0k - FFmpeg example </a></li>
-            <li><a href="source_link">https://www.youtube.com/watch?v=-RjDWwTZUnc&ab_channel=Nosware - Google Cloud
+            <li>[2] <a href="source_link">https://youtu.be/hQAHSlTtcmY?si=MvU95wLXKO9hEqm5 - React Tutorial </a></li>
+            <li>[3] <a href="source_link">https://www.youtube.com/watch?v=299EVj73Z0k - FFmpeg example </a></li>
+            <li>[4] <a href="source_link">https://www.youtube.com/watch?v=-RjDWwTZUnc&ab_channel=Nosware - Google Cloud
                     guidance</li>
             </a>
+            </li>[5] “Learn Rust.” Rust Programming Language, www.rust-lang.org/learn. Accessed 4 Dec. 2023.
+            <li>
             </li>
-            <!-- Add more references as needed -->
+            <li>[6] “Getting Started – React.” Reactjs.org, legacy.reactjs.org/docs/getting-started.html.
+            </li>
         </ul>
     </div>
 </body>
