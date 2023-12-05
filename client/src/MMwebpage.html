@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project Webpage</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #36393e;
+            color: #d1d1d1;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: #424549;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #0056b3;
+            /* Subtle blue for headers */
+        }
+
+        h1 {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #007bff;
+            /* Lighter blue for links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>MediaMorphosis-API</h1>
+        <p>
+            <!-- Brief paragraph about your service -->
+        <h2>About</h2>
+
+        MediaMorphosis API, written in Rust, leverages FFmpeg for high-performance media conversion. It effortlessly
+        transforms audio, video, and images into various formats, ensuring quality and speed. Ideal for developers
+        needing a reliable, swift media converter.
+        </p>
+
+        <h2>Setup Details</h2>
+        <p>
+            <!-- Describe the implementation of your service -->
+            Project Name: MediaMorphosis API
+
+            The restricted users involved two user groups within the GCP VM: 'Admin' and 'Peasants'. The 'Admin' group
+            has access to logs and system activities, while 'Peasants' are restricted from accessing logs to maintain data integrity.
+
+            The restrictied resource involved video size... logging success rate is kinda a issue because the middleware reads the header bits and that has a chance of failing (even though it has not yet).
+
+            
+
+            Implementation details including group names, restricted resources, script details, logging specifics, and
+            backup script information.
+        </p>
+
+        <h2>Group Members and Contributions</h2>
+        <ul>
+            <!-- List of group members and their specific contributions -->
+            <li>Nathan Klump: Helped build rust server, and hosting the service to the public. Tested sending requests
+                and retrieving data. Added
+                control access for sensitive files on the server.</li>
+            <li>John Ataalla: Rust server dev, created react axios call, added logging processes, created backup system.
+            </li>
+            <li>Dominick Kalaj: Frontend development, changed from SvelteKit to React, access form and file submission.
+            </li>
+            <!-- Add more members as needed -->
+        </ul>
+
+        <h2>Service Screenshot</h2>
+        <p>
+            <!-- Include at least one screenshot of your service -->
+            <img src=https://i.ibb.co/xJyhkM8/form.png" alt="Service Screenshot">
+        </p>
+
+        <h2>References</h2>
+        <ul>
+            <!-- Provide references for any online sources used -->
+            <li>
+            <li><a href="source_link">
+                    https://www.youtube.com/watch?v=T_KrYLW4jw8&ab_channel=TechWithTi</a></li>
+            <li><a href="source_link">https://youtu.be/hQAHSlTtcmY?si=MvU95wLXKO9hEqm5 - React Tutorial </a></li>
+            <li><a href="source_link">https://www.youtube.com/watch?v=299EVj73Z0k - FFmpeg example </a></li>
+            <li><a href="source_link">https://www.youtube.com/watch?v=-RjDWwTZUnc&ab_channel=Nosware - Google Cloud
+                    guidance</li>
+            </a>
+            </li>
+            <!-- Add more references as needed -->
+        </ul>
+    </div>
+</body>
+
+</html>
