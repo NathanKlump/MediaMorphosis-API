@@ -70,7 +70,7 @@ function App() {
             <div className="flex justify-between items-center px-10 py-8 bg-lime-500 text-white shadow-lg rounded-xl border border-gray-800">
               <Link to="/" className="logo">
                 <img
-                  className="max-w-24 max-h-24 logo-img"
+                  className="max-w-16 max-h-16 logo-img"
                   src="logo.png"
                   alt="MediaMorpher Logo"
                 />
@@ -105,11 +105,11 @@ function App() {
         </Routes>
 
         {/* Main section containing the hear/main content (like the FAQ and converter) */}
-        <main className="relative">
+        <main className="my-40">
           {/* The main content, the converter */}
           <section className="h-screen flex justify-center items-center flex-col">
             <div className="font-sans flex flex-col justify-center items-center mb-20">
-              <h1 className="bg-gradient-to-b from-lime-400 opacity-100 to-white bg-clip-text text-5xl py-2 text-transparent font-bold lg:text-7xl text-center mb-4">
+              <h1 className="bg-gradient-to-b from-lime-400 opacity-100 to-white bg-clip-text text-5xl py-2 text-transparent font-bold text-center mb-4">
                 Welcome to MediaMorphosis API!
               </h1>
               <div className="max-w-md mx-auto p-8 shadow-lg rounded-lg bg-slate-500">
@@ -173,7 +173,7 @@ function App() {
 
             {/* The FAQ */}
             <section className="w-full">
-              <h1 className="bg-gradient-to-b from-lime-400 opacity-100 to-white bg-clip-text text-5xl py-2 text-transparent font-bold lg:text-5xl text-center">
+              <h1 className="bg-gradient-to-b from-lime-400 opacity-100 to-white bg-clip-text text-5xl py-2 text-transparent font-bold text-center">
                 Why Choose MediaMorphosis?
               </h1>
 
