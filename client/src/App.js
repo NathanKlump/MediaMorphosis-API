@@ -63,10 +63,10 @@ function App() {
   return (
     <Router>
       {/* // Entire body */}
-      <body className="relative bg-gray-800">
+      <body className="bg-gray-800">
         {/* Header first */}
         <header>
-          <div className="inset-x-0 top-2 z-10 left-2 right-2">
+          <div className="top-2 left-2 right-2">
             <div className="flex justify-between items-center px-10 py-8 bg-lime-500 text-white shadow-lg rounded-xl border border-gray-800">
               <Link to="/" className="logo">
                 <img
